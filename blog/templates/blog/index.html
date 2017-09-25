@@ -9,7 +9,7 @@
         <h3><a href="{% url 'blog:article' post.id %}">{{ post.title }}</a></h3>
     </div>
     <div class="panel-body">
-        {{ post.text|linebreaksbr }}
+        {{ post.text|safe }}
     </div>
 </div>
 {% empty %}

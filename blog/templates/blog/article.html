@@ -9,6 +9,6 @@
 {% endblock header %}
 {% block content %}
         <div class="panel-body">
-            {{ post.text|linebreaksbr }}
+            {{ post.text|safe }}
         </div>
 {% endblock %}

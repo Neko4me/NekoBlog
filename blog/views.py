@@ -3,7 +3,7 @@ from django.utils import timezone
 from .models import Post,Topic
 
 def index(request):
-    posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
+    posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')
     context={'posts': posts}
     return render(request, 'blog/index.html', context)
 

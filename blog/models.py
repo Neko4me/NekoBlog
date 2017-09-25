@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils import timezone
+from ckeditor_uploader.fields import RichTextUploadingField
 
 class Topic(models.Model):
     text=models.CharField(max_length=200)
@@ -10,7 +11,7 @@ class Topic(models.Model):
 class Post(models.Model):
     topic = models.ForeignKey(Topic)
     title = models.CharField(max_length=200)
-    text = models.TextField()
+    text = RichTextUploadingField(verbose_name='Text')
     created_date = models.DateTimeField(
             default=timezone.now)
     published_date = models.DateTimeField(
@@ -21,4 +22,7 @@ class Post(models.Model):
         self.save()
 
     def __str__(self):
-        return self.title
+        if len(self.text)>50:
+            return self.text[:50]+'...'
+        else:
+            return self.text
