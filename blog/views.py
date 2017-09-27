@@ -16,3 +16,12 @@ def article(request,post_id):
     post=Post.objects.get(id=post_id)
     context={'post': post}
     return render(request, 'blog/article.html',context)
+
+def about(request):
+    return  render(request, 'blog/about.html')
+
+def topic(request,topic_id):
+    topic = Topic.objects.get(id=topic_id)
+    posts=topic.post_set.order_by('-published_date')
+    context={'topic':topic,'posts':posts}
+    return render(request,'blog/topic.html',context)
