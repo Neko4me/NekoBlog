@@ -5,5 +5,6 @@ urlpatterns = [
     url(r'^topics/$',views.topics,name='topics'),
     url(r'article/(?P<post_id>\d+)/$',views.article,name='article'),
     url(r'^about/$',views.about,name='about'),
-    url(r'^topics/(?P<topic_id>\d+)/$',views.topic,name='topic')
+    url(r'^topics/(?P<topic_id>\d+)/$',views.topic,name='topic'),
+    url(r'^messge/$',views.messge,name='messge'),
 ]

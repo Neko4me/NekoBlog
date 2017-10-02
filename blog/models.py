@@ -26,3 +26,10 @@ class Post(models.Model):
             return self.text[:50]+'...'
         else:
             return self.text
+
+class Messge(models.Model):
+    name = models.CharField(max_length=8)
+    text = models.TextField(max_length=200)
+    time = models.DateTimeField(auto_now_add=True)
+    def __str__(self):
+        return self.text
